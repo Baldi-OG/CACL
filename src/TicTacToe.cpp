@@ -36,7 +36,11 @@ void TicTacToe::play() {
         while (true) {
             cout << currentPlayer.getName() << " (" << currentPlayer.getSymbol() <<
                     "), enter row (1-3) and column (1-3): ";
-            cin >> row >> col;
+            if (!(cin >> row >> col)) {
+                cout << "Invalid input! Try again." << endl;
+                cin.clear();
+                cin.ignore();
+            }
             row--;
             col--; // Convert to 0-indexed
 

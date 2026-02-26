@@ -10,4 +10,4 @@ add_executable(CACL
         src/Board.cpp
 )
 
-include_directories(include)
+target_include_directories(CACL PRIVATE include)
