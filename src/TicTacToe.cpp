@@ -6,6 +6,7 @@
 #include "Player.h"
 
 #include <iostream>
+#include <limits>
 using namespace std;
 
 TicTacToe::TicTacToe() : players{
@@ -39,7 +40,8 @@ void TicTacToe::play() {
             if (!(cin >> row >> col)) {
                 cout << "Invalid input! Try again." << endl;
                 cin.clear();
-                cin.ignore();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
             }
             row--;
             col--; // Convert to 0-indexed
