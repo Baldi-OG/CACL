@@ -10,4 +10,17 @@ add_executable(CACL
         src/Board.cpp
 )
 
+add_executable(server src/Server.cpp
+)
+
+add_executable(client src/Client.cpp
+)
+
+set_target_properties(server PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+set_target_properties(client PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
+
+target_compile_options(server PRIVATE -lpthread)
+target_compile_options(client PRIVATE -lpthread)
+
+
 target_include_directories(CACL PRIVATE include)
